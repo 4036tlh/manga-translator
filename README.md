@@ -18,7 +18,8 @@ Step 2: word extraction
 - For every sentence images, Using tesseract library to read the words, so it will become text from image.
   
 Step 3: Translation
-- Using existed API to sent to Google translate, the library name is 'googletrans'.
+- Using existed API to sent to Google translate, the library name is 'googletrans'.</br>
+<a href='https://py-googletrans.readthedocs.io/en/latest/'> Tutorial to send to Google translate</a>
 
 Step 4: Record/Display
 - just record as text first, don't think on replacing the original text inside image.
