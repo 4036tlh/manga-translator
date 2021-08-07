@@ -27,7 +27,7 @@ Step 5: Enable real time running
 - Make a function to run it continuously(every second scan one times and display translated text on cmd)
 
 ## Further Enhancement
-https://github.com/KUR-creative/SickZil-Machine
+https://github.com/KUR-creative/SickZil-Machine </br>
 https://github.com/dalelyunas/manga-translator
 
 未来日本漫画盗版吃广告费不是梦~
