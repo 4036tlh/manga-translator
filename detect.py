@@ -3,9 +3,11 @@ import time
 from pathlib import Path
 
 import cv2
+import csv
 import torch
 import torch.backends.cudnn as cudnn
 from numpy import random
+import pandas as pd
 
 from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
@@ -143,6 +145,21 @@ def detect(save_img=False):
 
     print(f'Done. ({time.time() - t0:.3f}s)')
 
+def get_list(x):
+    n = 4
+    x = list(divide_chunks(x, n))
+    #print(x)
+    fields = ['x', 'y', 'width', 'height']
+    df = pd.DataFrame(x, columns=fields, dtype=float)
+    df["a*b/c"] = (df["x"] * df["y"])
+    df.sort_values(by=["a*b/c"], inplace=True)
+    df.to_csv('GFG.csv')
+
+
+def divide_chunks(lst, n):
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -164,7 +181,7 @@ if __name__ == '__main__':
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     opt = parser.parse_args()
     print(opt)
-    check_requirements()
+    #check_requirements()
 
     with torch.no_grad():
         if opt.update:  # update all models (to fix SourceChangeWarning)
